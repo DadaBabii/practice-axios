@@ -5,3 +5,23 @@ h2 {
 ul, div {
     margin-bottom: 100px;
 }
+
+li {
+    list-style: none;
+}
+.thumb  {
+display: flex;
+flex-direction: column;
+gap: 8px;
+border-radius: 5px;
+background-color: #ffefc8;
+    
+}
+    
+.thumb img {
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+width: 360px;
+height: 300px;
+object-fit:cover;
+}
