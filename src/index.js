@@ -29,6 +29,6 @@ async function onFormIdSubmit(e) {
   } catch (error) {
     console.log(error.message);
   }
-  e.target.reset;
+    e.target.reset;
 }
-console.log(refs.productsList);
+
