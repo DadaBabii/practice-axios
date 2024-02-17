@@ -12,10 +12,27 @@ export async function getProductById(id) {
 };
 
 export async function postProd(data) {
-  const response = await apiInstance.post('/products/add', data);
-  return response.data; 
-}
+  
+  try {
+     const response = await apiInstance.post('/products/add', data);
+  return response.data;
+  } catch (error) {
+    console.log(error);
+  } 
+  
+};
 
+export async function deleteProd(id) {
+  
+  try {
+    const response = await apiInstance.delete(`/products/${id}`);
+    console.log(response.data);
+  return response.data;
+  } catch (error) {
+    console.log(error);
+  } 
+  
+};
 
 
    

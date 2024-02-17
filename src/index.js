@@ -58,11 +58,23 @@ try {
 } catch (error) {
   console.log(error);
   }
-  //  finally {
-  //   refs.createProdForm.reset;
-  // };
-
+  
   e.target.reset();
 
 };
 
+// ЗАВДАННЯ 4 ==============================================
+import { deleteProd } from './requests/products';
+refs.deletionProductForm.addEventListener('submit', onElDeleteById);
+
+async function onElDeleteById(e) {
+  e.preventDefault();
+  const id = e.target.elements.deletionId.value.trim();
+  // console.log(response.data);
+  await deleteProd(id);
+  const previousUser = document.querySelector(`[data-id="${id}"]`);
+  
+  previousUser.remove();
+  e.target.reset();
+
+};

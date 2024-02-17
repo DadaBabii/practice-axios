@@ -1,7 +1,7 @@
 export function createMarkupProduct({ id, title, thumbnail, price }) {
-  return ` <li class="item">
+  return ` <li class="item" data-id="${id}">
   <div class ="thumb">
-  <h1> ${id} </h1>
+  <h1 > ${id} </h1>
         <img class="item-img" src="${thumbnail}" alt="picture" />
         <p class="item-title">Tittle: ${title}</p>
         <p class="item-price">Price: ${price}</p>
