@@ -9,4 +9,16 @@ export async function getAllProducts() {
 export async function getProductById(id) {
   const result = await apiInstance.get(`/products/${id}`);
   return result.data;
+};
+
+export async function postProd(data) {
+  const response = await apiInstance.post('/products/add', data);
+  return response.data; 
 }
+
+
+
+   
+  
+
+

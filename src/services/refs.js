@@ -3,4 +3,6 @@ export const refs = {
   getAllProdBtn: document.querySelector('.download-btn'),
   singleProductForm: document.querySelector('#singleProductForm'),
   singleProduct: document.querySelector('#singleProduct'),
+  createProdForm: document.querySelector('#createNewProductForm'),
+  creatingProduct: document.querySelector('#newProductSection'),
 };
