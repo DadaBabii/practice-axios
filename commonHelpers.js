@@ -1,16 +1,23 @@
-import{a}from"./assets/vendor-a2e8d7fa.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))c(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&c(i)}).observe(document,{childList:!0,subtree:!0});function n(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerpolicy&&(o.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?o.credentials="include":e.crossorigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function c(e){if(e.ep)return;e.ep=!0;const o=n(e);fetch(e.href,o)}})();function d({id:t,title:r,thumbnail:n,price:c}){return` <li class="item">
+import{a as u}from"./assets/vendor-a2e8d7fa.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))c(o);new MutationObserver(o=>{for(const n of o)if(n.type==="childList")for(const s of n.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&c(s)}).observe(document,{childList:!0,subtree:!0});function r(o){const n={};return o.integrity&&(n.integrity=o.integrity),o.referrerpolicy&&(n.referrerPolicy=o.referrerpolicy),o.crossorigin==="use-credentials"?n.credentials="include":o.crossorigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function c(o){if(o.ep)return;o.ep=!0;const n=r(o);fetch(o.href,n)}})();function d({id:t,title:e,thumbnail:r,price:c}){return` <li class="item">
   <div class ="thumb">
   <h1> ${t} </h1>
-        <img class="item-img" src="${n}" alt="picture" />
+        <img class="item-img" src="${r}" alt="picture" />
+        <p class="item-title">Tittle: ${e}</p>
+        <p class="item-price">Price: ${c}</p>
+      </li>
+      </div>`}function m({id:t,description:e,title:r,price:c}){return` <li class="item">
+  <div class ="thumb">
+  <h1> ${t} </h1>
+        <p class="item-desc"> Description: ${e}</p>
         <p class="item-title">Tittle: ${r}</p>
         <p class="item-price">Price: ${c}</p>
       </li>
-      </div>`}function m({id:t,title:r,thumbnail:n,price:c}){return`
+      </div>`}function p({id:t,title:e,thumbnail:r,price:c}){return`
  
   <div class="item thumb">
   <h1> ${t} </h1>
-    <img class="item-img" src="${n}" alt="picture" />
-        <p class="item-title">${r}</p>
+    <img class="item-img" src="${r}" alt="picture" />
+        <p class="item-title">${e}</p>
         <p class="item-price">${c}</p>
-      </div>`}const l=a.create({baseURL:"https://dummyjson.com"});async function u(){const t=await l.get("/products?limit=15");return console.log(t.data),t.data}async function p(t){return(await l.get(`/products/${t}`)).data}const s={productsList:document.querySelector("#allProducts"),getAllProdBtn:document.querySelector(".download-btn"),singleProductForm:document.querySelector("#singleProductForm"),singleProduct:document.querySelector("#singleProduct")};async function f(){const r=(await u()).products.map(d).join("");s.productsList.insertAdjacentHTML("beforeend",r)}s.getAllProdBtn.addEventListener("click",g);function g(t){t.preventDefault(),u(),f()}s.singleProductForm.addEventListener("submit",y);async function y(t){t.preventDefault();const r=t.target.elements.id.value.trim();try{const n=await p(r),c=m(n);s.singleProduct.innerHTML=c}catch(n){console.log(n.message)}t.target.reset}
+      </div>`}const a=u.create({baseURL:"https://dummyjson.com"});async function l(){const t=await a.get("/products?limit=15");return console.log(t.data),t.data}async function f(t){return(await a.get(`/products/${t}`)).data}async function g(t){return(await a.post("/products/add",t)).data}const i={productsList:document.querySelector("#allProducts"),getAllProdBtn:document.querySelector(".download-btn"),singleProductForm:document.querySelector("#singleProductForm"),singleProduct:document.querySelector("#singleProduct"),createProdForm:document.querySelector("#createNewProductForm"),creatingProduct:document.querySelector("#newProductSection")};async function P(){const e=(await l()).products.map(d).join("");i.productsList.insertAdjacentHTML("beforeend",e)}i.getAllProdBtn.addEventListener("click",y);function y(t){t.preventDefault(),l(),P()}i.singleProductForm.addEventListener("submit",h);async function h(t){t.preventDefault();const e=t.target.elements.id.value.trim();try{const r=await f(e),c=p(r);i.singleProduct.innerHTML=c}catch(r){console.log(r.message)}t.target.reset()}i.createProdForm.addEventListener("submit",v);async function v(t){t.preventDefault();const e={title:t.target.elements.title.value.trim(),description:t.target.elements.description.value.trim(),price:t.target.elements.price.value.trim()};try{const r=await g(e),c=m(r);i.creatingProduct.insertAdjacentHTML("afterbegin",c)}catch(r){console.log(r)}t.target.reset()}
 //# sourceMappingURL=commonHelpers.js.map
